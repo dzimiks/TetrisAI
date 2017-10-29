@@ -45,43 +45,43 @@ public class State {
 	// Sirina figure [ID figure][orijentacija]
 	protected static int[][] pWidth = {
 			{2},
-			{1,4},
-			{2,3,2,3},
-			{2,3,2,3},
-			{2,3,2,3},
-			{3,2},
-			{3,2}
+			{1, 4},
+			{2, 3, 2, 3},
+			{2, 3, 2, 3},
+			{2, 3, 2, 3},
+			{3, 2},
+			{3, 2}
 	};
 	
 	// Visina figure [ID figure][orijentacija]
 	private static int[][] pHeight = {
 			{2},
-			{4,1},
-			{3,2,3,2},
-			{3,2,3,2},
-			{3,2,3,2},
-			{2,3},
-			{2,3}
+			{4, 1},
+			{3, 2, 3, 2},
+			{3, 2, 3, 2},
+			{3, 2, 3, 2},
+			{2, 3},
+			{2, 3}
 	};
 	
 	private static int[][][] pBottom = {
-		{{0,0}},
-		{{0}, {0,0,0,0}},
-		{{0,0}, {0,1,1}, {2,0}, {0,0,0}},
-		{{0,0}, {0,0,0}, {0,2}, {1,1,0}},
-		{{0,1}, {1,0,1}, {1,0}, {0,0,0}},
-		{{0,0,1}, {1,0}},
-		{{1,0,0}, {0,1}}
+		{{0, 0}},
+		{{0}, {0, 0, 0, 0}},
+		{{0, 0}, {0, 1, 1}, {2, 0}, {0, 0, 0}},
+		{{0, 0}, {0, 0, 0}, {0, 2}, {1, 1, 0}},
+		{{0, 1}, {1, 0, 1}, {1, 0}, {0, 0, 0}},
+		{{0, 0, 1}, {1, 0}},
+		{{1, 0, 0}, {0, 1}}
 	};
 	
 	private static int[][][] pTop = {
 		{{2, 2}},
-		{{4}, {1,1,1,1}},
-		{{3,1}, {2,2,2}, {3,3}, {1,1,2}},
-		{{1,3}, {2,1,1}, {3,3}, {2,2,2}},
-		{{3,2}, {2,2,2}, {2,3}, {1,2,1}},
-		{{1,2,2}, {3,2}},
-		{{2,2,1}, {2,3}}
+		{{4}, {1, 1, 1, 1}},
+		{{3, 1}, {2, 2, 2}, {3, 3}, {1, 1, 2}},
+		{{1, 3}, {2, 1, 1}, {3, 3}, {2, 2, 2}},
+		{{3, 2}, {2, 2, 2}, {2, 3}, {1, 2, 1}},
+		{{1, 2, 2}, {3, 2}},
+		{{2, 2, 1}, {2, 3}}
 	};
 	
 	// Svi legalni potezi
@@ -108,51 +108,6 @@ public class State {
 				}
 			}
 		}
-	}
-	
-	// Geteri
-	public int[][] getField() {
-		return field;
-	}
-
-	public int[] getTop() {
-		return top;
-	}
-
-    public static int[] getpOrients() {
-        return pOrients;
-    }
-    
-    public static int[][] getpWidth() {
-        return pWidth;
-    }
-
-    public static int[][] getpHeight() {
-        return pHeight;
-    }
-
-    public static int[][][] getpBottom() {
-        return pBottom;
-    }
-
-    public static int[][][] getpTop() {
-        return pTop;
-    }
-
-	public int getNextPiece() {
-		return nextPiece;
-	}
-	
-	public boolean hasLost() {
-		return lost;
-	}
-	
-	public int getRowsCleared() {
-		return cleared;
-	}
-	
-	public int getTurnNumber() {
-		return turn;
 	}
 	
 	// Random broj 0-6
@@ -291,5 +246,49 @@ public class State {
 		label.filledRectangleLL(0, ROWS + 0.9, COLS, 4.2, Label.DEFAULT_CLEAR_COLOR);
 		label.line(0, 0, 0, ROWS + 5);
 		label.line(COLS, 0, COLS, ROWS + 5);
+	}
+	
+	public int[][] getField() {
+		return field;
+	}
+
+	public int[] getTop() {
+		return top;
+	}
+
+    public static int[] getpOrients() {
+        return pOrients;
+    }
+    
+    public static int[][] getpWidth() {
+        return pWidth;
+    }
+
+    public static int[][] getpHeight() {
+        return pHeight;
+    }
+
+    public static int[][][] getpBottom() {
+        return pBottom;
+    }
+
+    public static int[][][] getpTop() {
+        return pTop;
+    }
+
+	public int getNextPiece() {
+		return nextPiece;
+	}
+	
+	public boolean hasLost() {
+		return lost;
+	}
+	
+	public int getRowsCleared() {
+		return cleared;
+	}
+	
+	public int getTurnNumber() {
+		return turn;
 	}
 }

@@ -1,8 +1,12 @@
 package tetris;
 
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 
@@ -42,6 +46,15 @@ public class Frame extends JFrame implements KeyListener {
 		label.BORDER = 0.05;
 		label.setXscale(0, State.COLS);
 		label.setYscale(0, State.ROWS + 5);
+		
+		try {
+            this.setIconImage(ImageIO.read(new File("images/raf-logo.png")));
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+		
+		setMinimumSize(new Dimension(300, 700));
 		this.addKeyListener(this);  
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -78,6 +91,7 @@ public class Frame extends JFrame implements KeyListener {
 					}
 					case(KeyEvent.VK_UP): {
 						orient++;
+						
 						if (orient % State.pOrients[s.nextPiece] == 0)	
 							orient = 0;
 						
@@ -99,9 +113,12 @@ public class Frame extends JFrame implements KeyListener {
 							slot = State.COLS - State.pWidth[s.nextPiece][orient];
 						
 						s.draw();
+						
 						if (mode == NONE) {
 							label.text(State.COLS / 2.0, State.ROWS / 2.0, "Izgubio si!");
+							System.out.println("Uspesno je ocisceno " + s.getRowsCleared() + " redova!");
 						}
+						
 						s.clearNext();
 						s.drawNext(slot, orient);
 						break;

@@ -6,8 +6,8 @@ This is seminary work project written in Java. It represents basic Tetris simula
 
 Here are explanation and instructions how to play a game.
 
-To play as human, run Frame class.
-To see AI Bot in action, run TetrisBot class.
+To play as human, run Frame class.  
+To see AI Bot in action, run TetrisBot class.  
 To test multiple games at once, run TetrisTester class with appropriate settings.
 
 ### Frame
@@ -45,7 +45,6 @@ Class that tests one or multiple instances of the game.
 TEST - number of tests (don't overstate)
 DRAW - true or false, if true, be careful with number of tests
 ```
-
 
 Languages Used:
 * Java

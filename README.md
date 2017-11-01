@@ -2,11 +2,13 @@
 
 This is seminary work project written in Java. It represents basic Tetris simulation.
 
+![](https://i.imgur.com/jjAlkL3.png)
+
 ## Getting Started
 
 Here are explanation and instructions how to play a game.
 
-To play as human, run Frame class.  
+To play as human, run Frame class (use arrow keys).  
 To see AI Bot in action, run TetrisBot class.  
 To test multiple games at once, run TetrisTester class with appropriate settings.
 
@@ -35,7 +37,8 @@ clearNext() - clears the drawing of the next piece so it can be drawn in a diffe
 ### TetrisBot
 
 Here is implemented AI Bot player.
-The main function plays a game automatically (with visualization).
+The main function plays a game automatically (with visualization).  
+You can set speed in main function.
 
 ### TetrisTester
 

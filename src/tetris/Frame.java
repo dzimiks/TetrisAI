@@ -21,18 +21,11 @@ public class Frame extends JFrame implements KeyListener {
 	public int orient, slot;
 	public int mode = MANUAL;
 
-	public Frame() {
-		s.label = label;
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
-		setTitle("RAF TetrisAI");
-		setContentPane(label.draw);
-		pack();
-		label.BORDER = 0.05;
-		label.setXscale(0, State.COLS);
-		label.setYscale(0, State.ROWS + 5);
-		this.addKeyListener(this);  
-		setVisible(true);
+	public static void main(String[] args) {
+		State s = new State();
+		Frame t = new Frame(s);
+		s.draw();
+		s.drawNext(0, 0);
 	}
 	
 	public Frame(State s) {
@@ -47,6 +40,7 @@ public class Frame extends JFrame implements KeyListener {
 		label.setXscale(0, State.COLS);
 		label.setYscale(0, State.ROWS + 5);
 		
+		// Favicon ikonica
 		try {
             this.setIconImage(ImageIO.read(new File("images/raf-logo.png")));
         }
@@ -81,6 +75,7 @@ public class Frame extends JFrame implements KeyListener {
 						s.drawNext(slot, orient);
 						break;
 					}
+					
 					case(KeyEvent.VK_LEFT): {
 						if (slot > 0)
 							slot--;
@@ -89,9 +84,11 @@ public class Frame extends JFrame implements KeyListener {
 						s.drawNext(slot, orient);
 						break;
 					}
+
 					case(KeyEvent.VK_UP): {
 						orient++;
 						
+						// Ovde se rotira figura
 						if (orient % State.pOrients[s.nextPiece] == 0)	
 							orient = 0;
 						
@@ -102,6 +99,8 @@ public class Frame extends JFrame implements KeyListener {
 						s.drawNext(slot, orient);
 						break;
 					}
+					
+					// Ovde se spusta figura
 					case(KeyEvent.VK_DOWN): {
 						if (!s.makeMove(orient, slot))	
 							mode = NONE;
@@ -127,8 +126,10 @@ public class Frame extends JFrame implements KeyListener {
 						break;
 				}
 			}
+			
 			case(NONE):	
 				break;
+			
 			default:
 				System.out.println("Unknown mode!");
 				break;
@@ -141,13 +142,5 @@ public class Frame extends JFrame implements KeyListener {
 
 	public void keyTyped(KeyEvent e) {
 
-	}
-	
-    @SuppressWarnings("unused")
-	public static void main(String[] args) {
-		State s = new State();
-		Frame t = new Frame(s);
-		s.draw();
-		s.drawNext(0, 0);
 	}
 }

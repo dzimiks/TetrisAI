@@ -124,8 +124,7 @@ public class State {
 		makeMove(legalMoves[nextPiece][move]);
 	}
 	
-	// Pravi potez na osnovu move indeksa
-	// Pravi potez na osnovu niza orijentacije i slota
+	// Pravi potez na osnovu move indeksa, orijentacije i slota
 	public void makeMove(int[] move) {
 		makeMove(move[ORIENT], move[SLOT]);
 	}
